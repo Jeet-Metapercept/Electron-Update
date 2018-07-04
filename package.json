@@ -1,10 +1,10 @@
 {
   "name": "electronautoupdate",
   "version": "0.1.10",
-  "author": "ZaninAndrea",
+  "author": "Jeet",
   "homepage": "./",
   "description": "An example of an autoupdating electron app",
-  "repository": "https://github.com/ZaninAndrea/electron-autoupdate-example",
+  "repository": "https://github.com/Jeet-Metapercept/Electron-Update",
   "main": "electron.js",
   "dependencies": {
     "electron-updater": "^2.23.3"
