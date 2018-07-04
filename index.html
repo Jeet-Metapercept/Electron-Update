@@ -13,6 +13,12 @@
             var container = document.getElementById('ready');
             container.innerHTML = "new version ready!";
         })
+		//Checking for update
+		ipcRenderer.on('updateAvailable', function(event, text) {
+            // changes the text of the button
+            var container = document.getElementById('ready');
+            container.innerHTML = "new version available!";
+        })
     </script>
     Version: <span id="version">v0.1.13</span>
     <!-- the button onClick sends a quitAndInstall message to the electron main process -->
