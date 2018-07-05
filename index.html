@@ -9,23 +9,25 @@
         const ipcRenderer = require('electron').ipcRenderer;
         // wait for an updateReady message
         ipcRenderer.on('updateReady', function(event, text) {
+			  var retVal = confirm("new version available");
+			  if( retVal == true ){
+                  ipcRenderer.send('quitAndInstall');
+                  return true;
+               }
+               else{
+                  //document.write ("User does not want to continue!");
+                  return false;
+               }
             // changes the text of the button
-            var container = document.getElementById('ready');
-            container.innerHTML = "new version ready!";
-        })
-		//Checking for update
-		ipcRenderer.on('updateAvailable', function(event, text) {
-            // changes the text of the button
-            var container = document.getElementById('ready');
-            container.innerHTML = "new version available!";
+            //var container = document.getElementById('ready');
+            //container.innerHTML = "new version ready!";
         })
     </script>
-    Version: <span id="version">v0.1.14</span>
+    Version: <span id="version">v0.1.15</span>
     <!-- the button onClick sends a quitAndInstall message to the electron main process -->
-    <button id="ready" onClick="ipcRenderer.send('quitAndInstall')">no updates ready</button>
+    <!-- <button id="ready" onClick="ipcRenderer.send('quitAndInstall')">no updates ready</button> -->
 	<br>
-	<h1>Hello World!</h1>
-	<h3>Rohit Test!</h3>
+	<h1>Check Update!</h1>
 </body>
 
 </html>
