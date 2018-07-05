@@ -13,11 +13,19 @@
             var container = document.getElementById('ready');
             container.innerHTML = "new version ready!";
         })
+		//Checking for update
+		ipcRenderer.on('updateAvailable', function(event, text) {
+            // changes the text of the button
+            var container = document.getElementById('ready');
+            container.innerHTML = "new version available!";
+        })
     </script>
     Version: <span id="version">v0.1.16</span>
     <!-- the button onClick sends a quitAndInstall message to the electron main process -->
     <button id="ready" onClick="ipcRenderer.send('quitAndInstall')">no updates ready</button>
-
+	<br>
+	<h1>Hello World!</h1>
+	<h3>StaR Test!</h3>
 </body>
 
 </html>
